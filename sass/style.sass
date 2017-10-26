@@ -1,0 +1,130 @@
+@import 'https://fonts.googleapis.com/css?family=Courgette'
+@import 'https://fonts.googleapis.com/css?family=Merriweather:300i'
+
+@mixin duration($sec)
+	-webkit-transition-duration: $sec /* Safari */
+	transition-duration: $sec
+*
+	padding: 0
+	margin: 0
+	//border: 1px solid
+html, body
+	width: 100%
+	height: 100%
+	display: flex
+	overflow: hidden
+	//flex-direction: row
+	justify-content: center
+	align-items: center
+body
+	margin: 0
+	padding: 0
+	//padding-top: 0px
+	background: #555
+	background-attachment: fixed
+	
+img
+	width: 100%
+	
+	//&:hover
+		transform: scale(1.1)
+		z-index: -1
+
+%titleStyle
+	text-shadow: 0 0 5px #162029
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)			
+	color: white
+	z-index: 1
+//mainImg
+#mainImg
+	background: transparent
+	margin: auto
+	width: 600px
+	height: 450px
+	position: relative
+	overflow: hidden
+	box-shadow: 5px 5px 18px #162029
+	ul
+		list-style-type: none
+		position: absolute
+		left: 0
+		width: 3000px
+		li			
+			width: 600px 
+			position: relative
+			float: left
+			.title
+				@extend %titleStyle
+				font-family: 'Courgette', cursive
+				font-size: 250%
+				top: 70%
+			.subTitle
+				@extend %titleStyle
+				font-family: 'Merriweather', serif
+				top: 80%
+				
+				
+
+
+//pre next
+%preAndNext
+	cursor: pointer
+	text-shadow: 0 0 5px #162029
+	line-height: 460px
+	vertical-align: center
+	font-size: 400%
+	z-index: 1
+	position: absolute
+	//background: grey
+	width: 50px
+	height: 100%
+	padding: 0 10px
+	color: white
+	+duration(0.4s)
+	&:hover
+		font-size: 450%
+		text-shadow: 0 0 5px white
+		
+#pre
+	@extend %preAndNext
+#next
+	@extend %preAndNext
+	right: 0
+	#nextBtn
+		float: right
+
+
+//selector
+#selector	
+	position: absolute
+	//width: 100px
+	z-index: 1
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	top: 90%
+	ol
+		list-style-type: none
+		li
+			cursor: pointer
+			float: left
+			border: 1px solid white
+			margin: 5px
+			width: 12px
+			height: 12px
+			border-radius: 50%
+			background: transparent
+.active
+	background: white !important
+
+
+.scale
+	+duration(8s)
+	transform: scale(1.5)
+.unScale
+	+duration(3s)
+	transform: scale(1.0)
+
